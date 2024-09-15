@@ -20,6 +20,5 @@ class Program
             .WithInterFont()
             .UseR3()
             .UseSerilog(App.LogsSink)
-            .LogToTrace()
             .AfterSetup(_ => Log.ForContext<Program>().Information("App setup complete!"));
 }

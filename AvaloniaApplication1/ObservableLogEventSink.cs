@@ -17,9 +17,11 @@ public static class ObservableLogEventSinkExtensions
 
     public static AppBuilder UseSerilog(this AppBuilder builder, ObservableLogEventSink sink)
     {
+        Avalonia.Logging.Logger.Sink = new AvaloniaSerilogAdapter();
         return builder.AfterSetup((Action<AppBuilder>)(_ =>
             Log.Logger = new LoggerConfiguration()
                 .Enrich.FromLogContext()
+                .MinimumLevel.Debug()
                 .WriteTo.ObservableSink(sink)
                 .WriteTo.Console()
                 .CreateLogger()));
