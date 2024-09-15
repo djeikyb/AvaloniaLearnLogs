@@ -1,5 +1,6 @@
-﻿using Avalonia;
-using System;
+﻿using System;
+using Avalonia;
+using Serilog;
 
 namespace AvaloniaApplication1;
 
@@ -18,5 +19,7 @@ class Program
             .UsePlatformDetect()
             .WithInterFont()
             .UseR3()
-            .LogToTrace();
+            .UseSerilog(App.LogsSink)
+            .LogToTrace()
+            .AfterSetup(_ => Log.ForContext<Program>().Information("App setup complete!"));
 }

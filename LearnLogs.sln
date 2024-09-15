@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{0398B607-387D-456B-9579-B6C9BC875BFE}"
 	ProjectSection(SolutionItems) = preProject
 		Directory.Build.props = Directory.Build.props
+		readme.md = readme.md
 	EndProjectSection
 EndProject
 Global

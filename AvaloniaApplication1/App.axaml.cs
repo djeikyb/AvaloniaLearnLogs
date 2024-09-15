@@ -5,8 +5,15 @@ using HotAvalonia;
 
 namespace AvaloniaApplication1;
 
-public partial class App : Application
+public class App : Application
 {
+    static App()
+    {
+        LogsSink = new ObservableLogEventSink(14);
+    }
+
+    public static ObservableLogEventSink LogsSink { get; }
+
     public override void Initialize()
     {
         this.EnableHotReload(); // Ensure this line **precedes** `AvaloniaXamlLoader.Load(this);`
@@ -17,7 +24,7 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow(){DataContext = new ViewModel()};
+            desktop.MainWindow = new MainWindow { DataContext = new ViewModel() };
         }
 
         base.OnFrameworkInitializationCompleted();

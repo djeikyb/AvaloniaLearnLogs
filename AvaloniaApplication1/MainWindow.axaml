@@ -4,20 +4,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:AvaloniaApplication1"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        Width="350" Height="600"
+        Width="350" Height="280"
         Position="0 0"
         x:Class="AvaloniaApplication1.MainWindow"
         x:DataType="vm:ViewModel"
         Title="AvaloniaApplication1">
-    <StackPanel Spacing="9" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
-        <TextBlock VerticalAlignment="Center">
-            <TextBlock Text="Halooo" />
-            <TextBlock Text="{Binding Haloo.Value}" />
-        </TextBlock>
-        <Button Content="🐙"
-                Command="{Binding Click}"
-                Background="Transparent"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center" />
-    </StackPanel>
+    <DockPanel>
+        <Button
+            DockPanel.Dock="Top"
+            Content="🐙"
+            Command="{Binding Click}"
+            Margin="12"
+            HorizontalContentAlignment="Center"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Stretch" />
+
+        <TreeDataGrid Margin="9 0 9 0"
+                      HorizontalAlignment="Stretch"
+                      Source="{Binding LogEventGridSource}" />
+    </DockPanel>
 </Window>
